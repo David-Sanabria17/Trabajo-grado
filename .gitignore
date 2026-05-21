@@ -1,0 +1,17 @@
+# Logs
+*.log
+
+# Executables
+*.exe
+
+# Environments
+venv/
+env/
+.env
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
