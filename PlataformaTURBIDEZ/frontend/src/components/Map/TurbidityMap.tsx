@@ -45,6 +45,8 @@ const BAY_ZONES = [
 ];
 
 import ScientificTooltip from './ScientificTooltip';
+import { API } from '../../services/api';
+
 
 
 interface TurbidityMapProps {
@@ -634,7 +636,7 @@ const TurbidityMap = ({
 
 
         const response = await fetch(
-          `/api/v1/turbidity/heatmap-fast?start_date=${startDate}&end_date=${endDate}&satellite=${satellite}&algorithm=${algorithm}`,
+          `${API}/turbidity/heatmap-fast?start_date=${startDate}&end_date=${endDate}&satellite=${satellite}&algorithm=${algorithm}`,
           { signal: controller.signal }
         );
         

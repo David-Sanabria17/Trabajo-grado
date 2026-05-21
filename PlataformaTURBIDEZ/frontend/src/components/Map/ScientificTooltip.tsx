@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { X, Activity, Target, Waves, Maximize2, Minimize2, TrendingUp, ExternalLink } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine, Cell } from 'recharts';
+import { API } from '../../services/api';
 
 interface ScientificTooltipProps {
   clickedPoint: { lat: number; lon: number };
@@ -39,7 +40,7 @@ const ScientificTooltip = ({
       setIsLoading(true);
       try {
         const res = await fetch(
-          `/api/v1/turbidity/timeseries/point?lat=${clickedPoint.lat}&lon=${clickedPoint.lon}&start_date=${startDate}&end_date=${endDate}`
+          `${API}/turbidity/timeseries/point?lat=${clickedPoint.lat}&lon=${clickedPoint.lon}&start_date=${startDate}&end_date=${endDate}`
         );
         if (!res.ok) throw new Error("Failed to fetch");
         const json = await res.json();
