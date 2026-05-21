@@ -1,8 +1,7 @@
 // Centralized API Service Layer
 // All fetch calls use relative paths — Vite proxy handles dev, Traefik handles prod.
 
-export const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '' : 'https://trabajo-grado.onrender.com');
-export const API = `${API_BASE}/api/v1`;
+const API = '/api/v1';
 
 // --- Public Endpoints ---
 

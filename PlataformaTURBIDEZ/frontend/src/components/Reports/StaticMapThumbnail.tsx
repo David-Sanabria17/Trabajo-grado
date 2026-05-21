@@ -7,7 +7,6 @@ import ImageLayer from 'ol/layer/Image';
 import Static from 'ol/source/ImageStatic';
 import { fromLonLat } from 'ol/proj';
 import { defaults as defaultInteractions } from 'ol/interaction';
-import { API } from '../../services/api';
 
 const CARTAGENA_CENTER = fromLonLat([-75.52, 10.36]);
 
@@ -92,7 +91,7 @@ const StaticMapThumbnail: React.FC<StaticMapThumbnailProps> = ({ date, satellite
     const fetchHeatmapData = async () => {
       try {
         const response = await fetch(
-          `${API}/turbidity/heatmap-fast?start_date=${date}&end_date=${date}&satellite=${satellite}&algorithm=${algorithm}`,
+          `/api/v1/turbidity/heatmap-fast?start_date=${date}&end_date=${date}&satellite=${satellite}&algorithm=${algorithm}`,
           { signal: controller.signal }
         );
         if (!response.ok) throw new Error('Failed to fetch heatmap data');

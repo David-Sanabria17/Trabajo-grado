@@ -11,7 +11,6 @@ import LoginView from './components/Auth/LoginView';
 import AdminPanel from './components/Admin/AdminPanel';
 import ReportsModal from './components/Reports/ReportsModal';
 import { generateInfographicBlob } from './utils/exportUtils';
-import { API } from './services/api';
 
 function App() {
   // --- Core App State ---
@@ -69,7 +68,7 @@ function App() {
   useEffect(() => {
     const fetchAvailableDates = async () => {
       try {
-        const res = await fetch(`${API}/turbidity/available-dates?satellite=${satellite}&algorithm=${algorithm}`);
+        const res = await fetch(`/api/v1/turbidity/available-dates?satellite=${satellite}&algorithm=${algorithm}`);
         if (res.ok) {
           const data = await res.json();
           setAvailableDates(data.dates);

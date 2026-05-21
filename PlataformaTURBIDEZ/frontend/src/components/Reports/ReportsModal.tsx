@@ -51,7 +51,7 @@ const ReportsModal = ({ t, currentDate, onClose, availableDates, satellite = 'S3
   useEffect(() => {
     const fetchExportDates = async () => {
       try {
-        const res = await fetch(`${api.API}/turbidity/available-dates?satellite=${exportSatellite}&algorithm=${exportAlgorithm}`);
+        const res = await fetch(`/api/v1/turbidity/available-dates?satellite=${exportSatellite}&algorithm=${exportAlgorithm}`);
         if (res.ok) {
           const data = await res.json();
           setExportAvailableDates(data.dates || []);
